@@ -1,0 +1,7 @@
+[
+  {"code": "SYD", "city": "Sydney", "country": "Australia"},
+  {"code": "MEL", "city": "Melbourne", "country": "Australia"},
+  {"code": "BNE", "city": "Brisbane", "country": "Australia"},
+  {"code": "LAX", "city": "Los Angeles", "country": "USA"},
+  {"code": "NRT", "city": "Tokyo Narita", "country": "Japan"}
+]
