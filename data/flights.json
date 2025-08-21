@@ -1,0 +1,22 @@
+[
+  {
+    "from": "SYD",
+    "to": "LAX",
+    "date": "2025-09-15",
+    "price": 1550,
+    "currency": "AUD",
+    "airline": "Qantas",
+    "flightNumber": "QF11",
+    "cabin": "Economy"
+  },
+  {
+    "from": "SYD",
+    "to": "NRT",
+    "date": "2025-09-20",
+    "price": 980,
+    "currency": "AUD",
+    "airline": "ANA",
+    "flightNumber": "NH880",
+    "cabin": "Premium Economy"
+  }
+]
