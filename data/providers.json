@@ -1,0 +1,7 @@
+[
+  {"name": "Qantas", "status": "healthy"},
+  {"name": "Virgin Australia", "status": "healthy"},
+  {"name": "Jetstar", "status": "healthy"},
+  {"name": "Kiwi.com", "status": "healthy"},
+  {"name": "Amadeus", "status": "healthy"}
+]
