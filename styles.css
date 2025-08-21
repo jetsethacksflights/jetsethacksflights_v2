@@ -1,0 +1,84 @@
+/* === Jetset Hacks Styles v4 === */
+:root {
+  --brand-blue:#0C1C2E;
+  --brand-gold:#D4AF37;
+  --bg:#f9f9fb;
+  --text:#222;
+  --muted:#555;
+  --radius:6px;
+  --transition:0.2s ease;
+  font-family:'Inter',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-weight:600}
+a{color:var(--brand-blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+/* Header */
+.site-header{background:var(--brand-blue);color:white;padding:.5rem 0 1rem;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.header-inner{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.logo{background:white;border-radius:50%;padding:.25rem}
+.brand h1{font-size:1.25rem;margin:0}
+.brand .sub{font-size:.85rem;color:#ddd}
+.hdr-controls{margin-left:auto;display:flex;gap:.5rem}
+.hdr-controls label{font-size:.8rem;display:flex;align-items:center;gap:.25rem;color:white}
+.provider-health{font-size:.8rem;margin-left:1rem}
+
+/* Disclaimer */
+.disclaimer-top{font-size:.75rem;color:#ccc;margin-top:.25rem;text-align:center}
+
+/* Boards */
+.boards{margin:1.5rem 0}
+.boards-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
+.board-tabs{display:flex;gap:.5rem}
+.board-tab{background:var(--bg);border:1px solid #ccc;padding:.25rem .5rem;border-radius:var(--radius);cursor:pointer;font-size:.8rem}
+.board-tab.active{background:var(--brand-gold);border-color:var(--brand-gold);color:#000}
+.board-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.board{background:white;border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.08);padding:.75rem}
+.board h3{margin-bottom:.5rem;font-size:1rem}
+.popular-chips{margin-top:.75rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.popular-chips button{background:var(--brand-blue);color:white;border:none;padding:.35rem .6rem;border-radius:var(--radius);font-size:.8rem;cursor:pointer}
+
+/* Search */
+.search{margin:1.5rem 0}
+.search-form{display:flex;flex-wrap:wrap;gap:.5rem;align-items:flex-end;background:white;padding:.75rem;border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.search-form label{display:flex;flex-direction:column;font-size:.8rem}
+.search-form input, .search-form select{padding:.4rem;border:1px solid #ccc;border-radius:var(--radius);min-width:80px}
+.search-form .btn{background:var(--brand-gold);border:none;padding:.5rem 1rem;border-radius:var(--radius);cursor:pointer;font-weight:600}
+.chips{margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.5rem;font-size:.8rem}
+.chip{background:var(--brand-blue);color:white;border:none;padding:.3rem .6rem;border-radius:var(--radius);cursor:pointer}
+.flex-toggle{display:flex;align-items:center;gap:.25rem}
+.trip-type select, .cabin select{padding:.35rem;border:1px solid #ccc;border-radius:var(--radius)}
+.multicity{margin-top:.75rem;background:#fff;padding:.5rem;border:1px dashed #ccc;border-radius:var(--radius)}
+.mc-leg{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+
+/* Results */
+.results{margin:2rem 0}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;flex-wrap:wrap;gap:.5rem}
+.status{font-size:.8rem;color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:white;font-size:.85rem;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+thead{background:var(--brand-blue);color:white}
+th,td{padding:.5rem;border:1px solid #eee;text-align:center}
+td a{color:var(--brand-gold);font-weight:600}
+td button.share{background:none;border:none;color:var(--brand-blue);cursor:pointer}
+
+/* Footer */
+.site-footer{background:var(--brand-blue);color:white;text-align:center;padding:1rem;margin-top:auto}
+
+/* Dialog */
+.detail-dlg{padding:1rem;border:none;border-radius:var(--radius);max-width:500px}
+.detail-dlg::backdrop{background:rgba(0,0,0,.4)}
+.detail-dlg h3{margin-bottom:.5rem}
+
+/* Buttons */
+.btn-secondary{background:#eee;border:none;padding:.4rem .8rem;border-radius:var(--radius);cursor:pointer}
+
+/* Responsive */
+@media(max-width:600px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .search-form{flex-direction:column;align-items:stretch}
+}
