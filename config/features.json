@@ -1,0 +1,8 @@
+{
+  "popularFlightsBoard": true,
+  "compareBoards": true,
+  "multiCity": true,
+  "popularDestinations": true,
+  "audConversion": true,
+  "deepLinks": true
+}
