@@ -1,18 +1,17 @@
 [
-  {
-    "from": "SYD",
-    "to": "LAX",
-    "date": "2025-09-15",
-    "returnDate": "2025-09-25",
-    "price": 1550,
-    "currency": "AUD",
-    "airline": "Qantas",
-    "flightNumber": "QF11",
-    "cabin": "Economy",
-    "points": 69000,
-    "alliance": "oneworld"
-  },
-  {
+{
+  "from": "LAX",
+  "to": "SYD",
+  "date": "2025-08-28",
+  "price": 1180,
+  "currency": "USD",
+  "airline": "Qantas",
+  "flightNumber": "QF12",
+  "cabin": "Economy",
+  "points": 55000,
+  "alliance": "oneworld"
+}
+
     "from": "MEL",
     "to": "LAX",
     "date": "2025-08-27",
