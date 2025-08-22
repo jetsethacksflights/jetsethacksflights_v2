@@ -1,5 +1,5 @@
-// app.js — Jetset Hacks v2.0 (No Code Needed)
-// Fully mobile-friendly, comparison, drill-down, direct links
+// app.js — Jetset Hacks v2.0 (Full Working Version)
+// Loads live deals, comparison, details, timestamps
 
 // Load popular routes
 async function loadPopularRoutes() {
