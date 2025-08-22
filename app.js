@@ -1,62 +1,60 @@
-// app.js - Loads flight deals and shows them on your site
+// app.js — Load flight deals from scraper repo
 
 async function loadPopularRoutes() {
   const container = document.querySelector('#board-routes .board-body');
+  const health = document.getElementById('providerHealth');
   if (!container) return;
 
   container.innerHTML = '🔍 Loading the best flight deals...';
 
   try {
-    // 🔗 REPLACE THESE TWO LINES:
-    const USERNAME = 'your-github-username';   // ← Change this
-    const REPO     = 'your-repo-name';         // ← Change this
+    const url = 'https://raw.githubusercontent.com/jetsethacksflights/jetsethacksflight/main/data/live_deals.json';
 
-    const response = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${REPO}/main/data/live_deals.json`);
-    
-    if (!response.ok) throw new Error('File not found');
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('No data');
 
     const data = await response.json();
-    const deals = data.items || [];
-
-    container.innerHTML = ''; // Clear loading
+    const deals = Array.isArray(data.items) ? data.items : [];
 
     if (deals.length === 0) {
-      container.innerHTML = '<p>No deals found yet.</p>';
+      container.innerHTML = '<p>No deals found. Check back soon!</p>';
       return;
     }
 
-    // Show each deal
-    deals.forEach(deal => {
+    container.innerHTML = '';
+
+    // Sort by price (null prices go last)
+    deals.sort((a, b) => {
+      if (a.aud !== null && b.aud !== null) return a.aud - b.aud;
+      if (a.aud === null) return 1;
+      if (b.aud === null) return -1;
+      return 0;
+    });
+
+    // Show top 6 deals
+    deals.slice(0, 6).forEach(deal => {
       const price = deal.aud ? `$${Math.round(deal.aud)}` : 'Check Link';
-      const cabin = deal.cabin.charAt(0).toUpperCase();
-      const airline = deal.operated_by || deal.provider;
+      const cabin = (deal.cabin || 'economy').charAt(0).toUpperCase();
 
       const div = document.createElement('div');
       div.className = 'deal-item';
       div.innerHTML = `
         <div class="route"><strong>${deal.from} → ${deal.to}</strong></div>
-        <div class="airline">${airline}</div>
+        <div class="airline">${deal.provider}</div>
         <div class="price">${price} <small>${cabin}</small></div>
-        <a href="${deal.url}" target="_blank" class="btn btn-sm">View</a>
+        <a href="${deal.url}" target="_blank" class="btn btn-primary btn-sm">View</a>
       `;
       container.appendChild(div);
     });
 
-    // Optional: update header
-    document.getElementById('providerHealth').textContent = 
-      `Last updated: ${new Date().toLocaleTimeString()} — ${deals.length} deals`;
+    health.textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
 
   } catch (error) {
-    container.innerHTML = `
-      <p style="color:#d93025">
-        🚨 Can't load deals. Check your GitHub settings.
-      </p>
-    `;
-    console.error("Load failed:", error);
+    container.innerHTML = `<p style="color:#d93025">Failed to load deals</p>`;
+    console.error("Error:", error);
   }
 }
 
-// Run when page loads
 document.addEventListener('DOMContentLoaded', loadPopularRoutes);
 
 
