@@ -1,15 +1,57 @@
 /* styles.css — Jetset Hacks v2.0 */
 
-/* Scrollable tables */
-.table-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  margin: 16px 0;
+/* Reset */
+* {
+  box-sizing: border-box;
 }
 
-/* Cards */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #0C1C2E;
+  color: white;
+  padding: 1rem 0;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.brand p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Tabs */
+.board-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.board-tab {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.board-tab.active {
+  background: #0C1C2E;
+  color: white;
+  border-color: #0C1C2E;
+}
+
+/* Boards */
 .board-body {
   display: grid;
   gap: 12px;
@@ -53,6 +95,15 @@
 .btn-sm {
   font-size: 0.85rem;
   padding: 6px 10px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-sm:hover {
+  background: #1557b5;
 }
 
 /* Comparison table */
