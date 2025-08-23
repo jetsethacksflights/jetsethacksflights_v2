@@ -61,7 +61,12 @@
       </div>
     </div>
     <div class="board-grid">
-      <div class="board" id="board-routes"><h3>Popular routes</h3><div class="board-body"></div></div>
+      <div class="board" id="board-routes">
+  <h3>Popular routes</h3>
+  <div class="board-body" id="test-container">
+    <p>Loading deals...</p>
+  </div>
+</div>
       <div class="board" id="board-destinations" hidden><h3>Popular destinations</h3><div class="board-body"></div></div>
       <div class="board" id="board-compare">
   <h3>Comparison</h3>
@@ -168,5 +173,23 @@
   }
   header,main,footer{position:relative;z-index:1}
 </style>
+  <script>
+  // Test if data loads
+  async function testData() {
+    const container = document.getElementById('test-container');
+    try {
+      const url = 'https://raw.githubusercontent.com/jetsethacksflights/jetsethacksflight/main/data/live_deals.json';
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('No data');
+      const data = await response.json();
+      container.innerHTML = `<p>Data loaded! Found ${data.items.length} deal(s).</p>`;
+    } catch (error) {
+      container.innerHTML = `<p style="color:#d93025">Error: ${error.message}</p>`;
+    }
+  }
+
+  // Run when page loads
+  document.addEventListener('DOMContentLoaded', testData);
+</script>
 </body>
 </html>
