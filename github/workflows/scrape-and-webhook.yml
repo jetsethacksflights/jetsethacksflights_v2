@@ -16,7 +16,6 @@ on:
     - cron: "0 */3 * * *"       # Every 3 hours at minute 0
   workflow_dispatch: {}         # Allow manual runs from GitHub Actions tab
 
-
 jobs:
   scrape-and-webhook:
     runs-on: ubuntu-latest
@@ -53,9 +52,7 @@ jobs:
           python scraper_bot/webhook_sender.py
           echo "✅ Webhook delivery completed!"
 
-      - name: Commit updated JSON (optional backup)
-        env:
-          
+      - name: Report status
         if: always()
         run: |
           echo "================================================"
@@ -63,6 +60,4 @@ jobs:
           echo "================================================"
           echo "✅ Scraper: Completed"
           echo "✅ Webhook: Delivered to JetSet Hacks"
-          
           echo "================================================"
-          #Ready to Run
